@@ -2,7 +2,8 @@ package com.kk.testmanager.type;
 
 public enum ExecutionStatus {
     UNDEFINED("UNDEFINED"),
-    FAILED("FAILED");
+    FAILED("FAILED"),
+    PASSED("PASSED");
 
     private final String status;
 
