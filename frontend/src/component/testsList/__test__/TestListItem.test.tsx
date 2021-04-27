@@ -16,12 +16,15 @@ describe('TestListItem', () => {
     });
 
     it('should change test status', () => {
-        const {getByText, getByTestId} = render(<TestListItem id={123}/>);
+        const {queryByText, getByText, getByTestId} = render(<TestListItem id={123}/>);
         const select = getByTestId(testIds.select);
-        const oldStatus = getByText(TestStatus.UNDEFINED);
         const newStatus = TestStatus.PASSED;
-        expect(oldStatus).toBeInTheDocument();
+        expect(getByText(TestStatus.UNDEFINED)).toBeInTheDocument();
+        expect(queryByText(newStatus)).not.toBeInTheDocument();
+
         fireEvent.change(select, {target: {value: newStatus}})
+
+        expect(queryByText(TestStatus.UNDEFINED)).not.toBeInTheDocument();
         expect(getByText(newStatus)).toBeInTheDocument();
     });
 });
