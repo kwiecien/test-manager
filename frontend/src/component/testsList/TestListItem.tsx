@@ -3,11 +3,7 @@ import "./TestListItem.css"
 import {FormControl, MenuItem, Select} from "@material-ui/core";
 import {TestStatus} from "./TestStatus";
 
-interface Props {
-    style?: string;
-}
-
-const TestListItem: FC<Props> = ({style}) => {
+const TestListItem: FC = () => {
     return <div className={"test-list-item"}>
         <div>My test 1</div>
         <FormControl className={"form-control"} variant="outlined">
