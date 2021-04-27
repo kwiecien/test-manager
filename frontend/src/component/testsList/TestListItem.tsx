@@ -4,12 +4,12 @@ import {FormControl, MenuItem, Select} from "@material-ui/core";
 import {TestStatus} from "./TestStatus";
 
 interface Props {
-    index: number;
+    id: number;
 }
 
-const TestListItem: FC<Props> = ({index}) => {
+const TestListItem: FC<Props> = ({id}) => {
     return <div className={"test-list-item"}>
-        <div>{`My test ${index}`}</div>
+        <div>{`My test ${id}`}</div>
         <FormControl className={"form-control"} variant="outlined">
             <Select value={TestStatus.UNDEFINED} onChange={() => ({/* TODO */})}>
                 <MenuItem value={TestStatus.UNDEFINED}>{TestStatus.UNDEFINED}</MenuItem>

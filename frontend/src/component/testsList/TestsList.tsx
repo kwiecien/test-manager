@@ -4,8 +4,8 @@ import "./TestsList.css";
 
 const TestsList: FC = () => {
     return <div className={"tests-list"}>
-        <TestListItem index={1}/>
-        <TestListItem index={2}/>
+        <TestListItem id={1}/>
+        <TestListItem id={2}/>
     </div>;
 }
 
