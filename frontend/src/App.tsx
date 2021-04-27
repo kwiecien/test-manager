@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import NewTestButton from "./component/newTestButton/NewTestButton";
 
 function App() {
     return (
         <div className="App">
-            <div>Create a new test</div>
+            <NewTestButton/>
         </div>
     );
 }
