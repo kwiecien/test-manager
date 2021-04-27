@@ -3,7 +3,8 @@ import {Button} from "@material-ui/core";
 import "./NewTestButton.css"
 
 const NewTestButton: FC = () => {
-    return <Button variant={"outlined"} color={"primary"} className={"new-test-button"}>
+    return <Button variant={"outlined"} color={"primary"}
+                   size={"large"} className={"new-test-button"}>
         Create a new test
     </Button>;
 }
