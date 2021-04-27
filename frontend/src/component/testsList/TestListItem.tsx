@@ -1,17 +1,30 @@
-import {FC} from "react";
+import * as React from "react";
+import {FC, useState} from "react";
 import "./TestListItem.css"
 import {FormControl, MenuItem, Select} from "@material-ui/core";
 import {TestStatus} from "./TestStatus";
+
+export const testIds = {
+    select: 'select-test-id'
+}
 
 interface Props {
     id: number;
 }
 
 const TestListItem: FC<Props> = ({id}) => {
+    const [testStatus, setTestStatus] = useState(TestStatus.UNDEFINED);
+    const labelId = 'label-id';
+
+    function changeStatus(event: React.ChangeEvent<{ value: unknown }>): void {
+        setTestStatus(event.target.value as TestStatus);
+    }
+
     return <div className={"test-list-item"}>
-        <div>{`My test ${id}`}</div>
+        <label htmlFor={labelId}>{`My test ${id}`}</label>
         <FormControl className={"form-control"} variant="outlined">
-            <Select value={TestStatus.UNDEFINED} onChange={() => ({/* TODO */})}>
+            <Select inputProps={{"data-testid": testIds.select}} value={testStatus}
+                    onChange={changeStatus} labelId={labelId}>
                 <MenuItem value={TestStatus.UNDEFINED}>{TestStatus.UNDEFINED}</MenuItem>
                 <MenuItem value={TestStatus.PASSED}>{TestStatus.PASSED}</MenuItem>
                 <MenuItem value={TestStatus.FAILED}>{TestStatus.FAILED}</MenuItem>
