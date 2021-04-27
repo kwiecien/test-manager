@@ -2,8 +2,13 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-    render(<App/>);
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+    beforeEach(() => {
+        render(<App/>);
+    });
+
+    it('should show the create a new test button', () => {
+        const button = screen.getByText(/create a new test/i);
+        expect(button).toBeInTheDocument();
+    });
 });
