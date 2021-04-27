@@ -1,0 +1,7 @@
+.tests-list {
+    margin: 32px 0;
+}
+
+.tests-list > div + div {
+    margin-top: 16px;
+}
