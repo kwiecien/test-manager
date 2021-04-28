@@ -14,3 +14,7 @@ To run the application, execute the following commands:
 - `./mvnw spring-boot:run`
 
 in frontend and backend folders respectively.
+
+Enjoy!
+- http://localhost:3000/
+- http://localhost:8080/tests
