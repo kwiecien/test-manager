@@ -2,8 +2,8 @@ import * as React from "react";
 import {FC} from "react";
 import "./TestListItem.css"
 import {FormControl, MenuItem, Select} from "@material-ui/core";
-import {TestStatus} from "../../types/TestStatus";
-import {Test} from "../../types/Test";
+import {TestStatus} from "../../domain/TestStatus";
+import {Test} from "../../domain/Test";
 import {capitalize} from "../../utils/StringUtils";
 
 export const testIds = {

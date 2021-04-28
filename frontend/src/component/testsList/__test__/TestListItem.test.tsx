@@ -1,7 +1,7 @@
 import {fireEvent, render} from "@testing-library/react";
 import TestListItem, {testIds} from "../TestListItem";
-import {TestStatus} from "../../../types/TestStatus";
-import {Test} from "../../../types/Test";
+import {TestStatus} from "../../../domain/TestStatus";
+import {Test} from "../../../domain/Test";
 import {capitalize} from "../../../utils/StringUtils";
 
 describe('TestListItem', () => {

@@ -4,7 +4,7 @@ import NewTestButton from "./component/newTestButton/NewTestButton";
 import TestsList from "./component/testsList/TestsList";
 import {CachePolicies, useFetch} from "use-http";
 import {useMount} from "react-use";
-import {Test} from "./types/Test";
+import {Test} from "./domain/Test";
 import {backendUrl, routes} from "./network/Url";
 
 function App() {

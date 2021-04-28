@@ -1,7 +1,7 @@
 import {FC} from "react";
 import TestListItem from "./TestListItem";
 import "./TestsList.css";
-import {Test} from "../../types/Test";
+import {Test} from "../../domain/Test";
 
 interface Props {
     tests: Test[];
