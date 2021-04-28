@@ -3,13 +3,8 @@ import './App.css';
 import NewTestButton from "./component/newTestButton/NewTestButton";
 import TestsList from "./component/testsList/TestsList";
 import {useFetch} from "use-http";
-import {TestStatus} from "./component/testsList/TestStatus";
 import {useMount} from "react-use";
-
-interface Test {
-    id: number;
-    status: TestStatus;
-}
+import {Test} from "./types/Test";
 
 function App() {
     const [tests, setTests] = useState<Test[]>([]);
@@ -32,7 +27,7 @@ function App() {
     return (
         <div className="App">
             <NewTestButton/>
-            <TestsList/>
+            <TestsList tests={tests}/>
         </div>
     );
 }

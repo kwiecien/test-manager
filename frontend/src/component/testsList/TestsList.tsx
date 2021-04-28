@@ -1,11 +1,15 @@
 import {FC} from "react";
 import TestListItem from "./TestListItem";
 import "./TestsList.css";
+import {Test} from "../../types/Test";
 
-const TestsList: FC = () => {
+interface Props {
+    tests: Test[];
+}
+
+const TestsList: FC<Props> = ({tests}) => {
     return <div className={"tests-list"}>
-        <TestListItem id={1}/>
-        <TestListItem id={2}/>
+        {tests.map(test => <TestListItem key={test.id} test={test}/>)}
     </div>;
 }
 

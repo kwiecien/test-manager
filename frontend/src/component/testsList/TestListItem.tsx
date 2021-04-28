@@ -2,17 +2,18 @@ import * as React from "react";
 import {FC, useState} from "react";
 import "./TestListItem.css"
 import {FormControl, MenuItem, Select} from "@material-ui/core";
-import {TestStatus} from "./TestStatus";
+import {TestStatus} from "../../types/TestStatus";
+import {Test} from "../../types/Test";
 
 export const testIds = {
     select: 'select-test-id'
 }
 
 interface Props {
-    id: number;
+    test: Test;
 }
 
-const TestListItem: FC<Props> = ({id}) => {
+const TestListItem: FC<Props> = ({test: {id, status}}) => {
     const [testStatus, setTestStatus] = useState(TestStatus.UNDEFINED);
     const labelId = 'label-id';
 
