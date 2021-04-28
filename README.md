@@ -9,7 +9,7 @@ To set up the application, please run
 in frontend and backend folders respectively.
 
 ## Run
-In order to run the application the apps have to be started by executing commands:
+To run the application, execute the following commands:
 - `npm start`
 - `./mvnw spring-boot:run`
 
