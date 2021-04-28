@@ -3,9 +3,7 @@ package com.kk.testmanager.controller;
 import com.kk.testmanager.entity.Test;
 import com.kk.testmanager.repository.TestRepository;
 import com.kk.testmanager.type.ExecutionStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestManagerController {
@@ -23,6 +21,13 @@ public class TestManagerController {
     @PostMapping("/tests")
     public Test newTest() {
         Test test = new Test(ExecutionStatus.UNDEFINED);
+        return repository.save(test);
+    }
+
+    @PutMapping("/tests/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public Test updateTest(@PathVariable long id, @RequestBody ExecutionStatus status) {
+        Test test = new Test(id, status);
         return repository.save(test);
     }
 }
