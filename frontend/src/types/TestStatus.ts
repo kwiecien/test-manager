@@ -1,5 +1,5 @@
 export enum TestStatus {
-    UNDEFINED = "Undefined",
-    FAILED = "Failed",
-    PASSED = "Passed",
+    UNDEFINED = "UNDEFINED",
+    FAILED = "FAILED",
+    PASSED = "PASSED",
 }

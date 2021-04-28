@@ -9,7 +9,7 @@ import {backendUrl, routes} from "./network/Url";
 
 function App() {
     const [tests, setTests] = useState<Test[]>([]);
-    const {get, post, response} = useFetch(backendUrl, {cachePolicy: CachePolicies.NO_CACHE});
+    const {get, post, put, response} = useFetch(backendUrl, {cachePolicy: CachePolicies.NO_CACHE});
 
     useMount(() => {
         getTests().catch(reason => console.error(reason));
@@ -25,10 +25,21 @@ function App() {
         if (response.ok) setTests([...tests, newTest]);
     }
 
+    async function changeTestStatus(test: Test): Promise<void> {
+        await put(`${routes.tests}/${test.id}`, test.status.toUpperCase());
+        if (response.ok) {
+            const updatedTests = tests.reduce((updated: Test[], t) => t.id !== test.id
+                ? [...updated, t]
+                : [...updated, {...t, status: test.status}],
+                []);
+            setTests(updatedTests);
+        }
+    }
+
     return (
         <div className="App">
             <NewTestButton onClick={createNewTest}/>
-            <TestsList tests={tests}/>
+            <TestsList tests={tests} onStatusChange={changeTestStatus}/>
         </div>
     );
 }
