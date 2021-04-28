@@ -2,31 +2,32 @@ import React, {useState} from 'react';
 import './App.css';
 import NewTestButton from "./component/newTestButton/NewTestButton";
 import TestsList from "./component/testsList/TestsList";
-import {useFetch} from "use-http";
+import {CachePolicies, useFetch} from "use-http";
 import {useMount} from "react-use";
 import {Test} from "./types/Test";
+import {backendUrl, routes} from "./network/Url";
 
 function App() {
     const [tests, setTests] = useState<Test[]>([]);
-    const {get, post, response} = useFetch('http://localhost:8080'); // TODO extract url
+    const {get, post, response} = useFetch(backendUrl, {cachePolicy: CachePolicies.NO_CACHE});
 
     useMount(() => {
         getTests().catch(reason => console.error(reason));
     })
 
     async function getTests(): Promise<void> {
-        const tests = await get('/tests'); // TODO extract url
+        const tests = await get(routes.tests);
         if (response.ok) setTests(tests);
     }
 
     async function createNewTest(): Promise<void> {
-        const newTest = await post('/tests');
+        const newTest = await post(routes.tests, {});
         if (response.ok) setTests([...tests, newTest]);
     }
 
     return (
         <div className="App">
-            <NewTestButton/>
+            <NewTestButton onClick={createNewTest}/>
             <TestsList tests={tests}/>
         </div>
     );

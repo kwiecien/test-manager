@@ -2,9 +2,14 @@ import React, {FC} from "react";
 import {Button} from "@material-ui/core";
 import "./NewTestButton.css"
 
-const NewTestButton: FC = () => {
+interface Props {
+    onClick: () => void;
+}
+
+const NewTestButton: FC<Props> = ({onClick}) => {
     return <Button variant={"outlined"} color={"primary"}
-                   size={"large"} className={"new-test-button"}>
+                   size={"large"} className={"new-test-button"}
+                   onClick={onClick}>
         Create a new test
     </Button>;
 }
