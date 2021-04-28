@@ -1,4 +1,4 @@
-package com.kk.testmanager.type;
+package com.kk.testmanager.entity;
 
 public enum ExecutionStatus {
     UNDEFINED("UNDEFINED"),

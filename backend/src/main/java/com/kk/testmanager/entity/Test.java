@@ -1,6 +1,5 @@
 package com.kk.testmanager.entity;
 
-import com.kk.testmanager.type.ExecutionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

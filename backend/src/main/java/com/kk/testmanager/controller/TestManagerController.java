@@ -1,8 +1,8 @@
 package com.kk.testmanager.controller;
 
+import com.kk.testmanager.entity.ExecutionStatus;
 import com.kk.testmanager.entity.Test;
 import com.kk.testmanager.repository.TestRepository;
-import com.kk.testmanager.type.ExecutionStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
